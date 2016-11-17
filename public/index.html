@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Welcome to Firebase Hosting</title>
+
+<body>  
+  <button onclick="clickF()">click</button>
+  <button onclick="delF()">Borrar</button>
+
+<script src="https://www.gstatic.com/firebasejs/3.6.1/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyAy_N6sRgiaDo6cU-s22MOxdjpxXzBTkDs",
+    authDomain: "proyecto-curso-fb-c4f21.firebaseapp.com",
+    databaseURL: "https://proyecto-curso-fb-c4f21.firebaseio.com",
+    storageBucket: "proyecto-curso-fb-c4f21.appspot.com",
+    messagingSenderId: "949581277220"
+  };
+  firebase.initializeApp(config);
+  var database = firebase.database();
+  var click = database.ref("clicks/");
+  var count = 1;
+  function clickF(){
+    count += 1;
+    click.push({
+      count: count
+    });
+  }
+  function delF(){
+   click.remove();
+  }
+</script>
+    </body>
+</html>
